@@ -46,14 +46,26 @@ pipeline {
     }
 post {
     success {
-        mail to: 'moussayoussef65@gmail.com',
-             subject: "Build SUCCESS: ${env.JOB_NAME}",
-             body: "Le pipeline ${env.JOB_NAME} a réussi !"
+        emailext(
+            to: 'moussayoussef65@gmail.com',
+            subject: "✅ Build SUCCESS: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: "Le pipeline ${env.JOB_NAME} a réussi !",
+            smtpHost: 'smtp.gmail.com',
+            smtpPort: '465',
+            useSsl: true,
+            from: 'moussayoussef65@gmail.com'
+        )
     }
     failure {
-        mail to: 'moussayoussef65@gmail.com',
-             subject: "Build FAILURE: ${env.JOB_NAME}",
-             body: "Le pipeline ${env.JOB_NAME} a échoué !"
+        emailext(
+            to: 'moussayoussef65@gmail.com',
+            subject: "❌ Build FAILURE: ${env.JOB_NAME} #${env.BUILD_NUMBER}",
+            body: "Le pipeline ${env.JOB_NAME} a échoué !",
+            smtpHost: 'smtp.gmail.com',
+            smtpPort: '465',
+            useSsl: true,
+            from: 'moussayoussef65@gmail.com'
+        )
     }
 }
 }

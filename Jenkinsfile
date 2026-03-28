@@ -46,12 +46,12 @@ pipeline {
     }
 post {
     success {
-        mail to: 'youssef.moussa@esprit.tn',
+        mail to: 'moussayoussef65@gmail.com',
              subject: "Build SUCCESS: ${env.JOB_NAME}",
              body: "Le pipeline ${env.JOB_NAME} a réussi !"
     }
     failure {
-        mail to: 'youssef.moussa@esprit.tn',
+        mail to: 'moussayoussef65@gmail.com',
              subject: "Build FAILURE: ${env.JOB_NAME}",
              body: "Le pipeline ${env.JOB_NAME} a échoué !"
     }

@@ -1,4 +1,4 @@
-FROM eclipse-temurin:17-jdk-jammy
+FROM d2fc35df04a8
 WORKDIR /app
 COPY target/student-management-0.0.1-SNAPSHOT.jar app.jar
 EXPOSE 8089

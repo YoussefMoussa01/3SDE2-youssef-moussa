@@ -44,4 +44,16 @@ pipeline {
             }
         }
     }
+post {
+    success {
+        mail to: 'youssef.moussa@esprit.tn',
+             subject: "Build SUCCESS: ${env.JOB_NAME}",
+             body: "Le pipeline ${env.JOB_NAME} a réussi !"
+    }
+    failure {
+        mail to: 'youssef.moussa@esprit.tn',
+             subject: "Build FAILURE: ${env.JOB_NAME}",
+             body: "Le pipeline ${env.JOB_NAME} a échoué !"
+    }
+}
 }

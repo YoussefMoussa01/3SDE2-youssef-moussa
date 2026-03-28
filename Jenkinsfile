@@ -33,7 +33,7 @@ pipeline {
         }
         stage('Build Docker Image') {
             steps {
-                sh 'docker build -t youssefmoussa-3sde2-studentmanagement .'
+                sh 'docker build --pull=never -t youssefmoussa-3sde2-studentmanagement .'
             }
         }
         stage('Deploy') {
